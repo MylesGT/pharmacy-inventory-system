@@ -1,5 +1,5 @@
 # **Pharmacy Inventory System**
-The **Pharmacy Inventory Manangement System** is a Java-based tool specifically designed for pharmacies. It enables real-time monitoring of stock levels and sends alerts when safety stock levels are reached, ensuring pharmacies always have sufficient inventory on hand.
+The **Pharmacy Inventory Management System** is a Java-based tool specifically designed for pharmacies. It enables real-time monitoring of stock levels and sends alerts when safety stock levels are reached, ensuring pharmacies always have sufficient inventory on hand.
 
 ## **📖 Overview** 
 
