@@ -1,0 +1,82 @@
+/* Medical & Professional Color Palette */
+:root {
+    --primary-blue: #2c3e50;
+    --medical-blue: #3498db;
+    --success-green: #27ae60;
+    --error-red: #e74c3c;
+    --bg-light: #f4f7f6;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    border-top: 8px solid var(--medical-blue);
+}
+
+h1 {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    margin-bottom: 0;
+}
+
+.difficulty-box {
+    margin: 25px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+#diffLabel {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--medical-blue);
+    margin: 10px 0;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--medical-blue);
+}
+
+button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background-color: #1a252f;
+    transform: translateY(-2px);
+}
+
+#quiz-area {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Classes for your future JS logic */
+.congrats { color: var(--success-green); font-weight: bold; border: 2px solid var(--success-green); padding: 10px; }
+.mockery { color: var(--error-red); font-weight: bold; border: 2px solid var(--error-red); padding: 10px; }
