@@ -3,17 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>The Clinical Hot-Seat</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background-color: #eef2f3; color: #333; }
-        .container { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 90%; max-width: 500px; text-align: center; }
-        h1 { color: #2c3e50; margin-bottom: 0.5rem; }
-        .setup-section { margin: 20px 0; padding: 15px; border-top: 1px solid #eee; }
-        input[type="range"] { width: 100%; cursor: pointer; }
-        button { background-color: #3498db; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 1rem; transition: background 0.3s; }
-        button:hover { background-color: #2980b9; }
-        #quiz-area { margin-top: 20px; font-weight: bold; min-height: 50px; }
-    </style>
 </head>
 <body>
 
@@ -31,22 +22,9 @@
         <div id="quiz-area">
             Choose a difficulty to begin the gauntlet.
         </div>
+        <button onclick="location.reload()" style="background-color: #95a5a6; margin-top: 10px;">Reset Gauntlet</button>
     </div>
 
-    <script>
-        function updateDiff(val) {
-            document.getElementById('diffLabel').innerText = val;
-        }
-
-        function generateQuestion() {
-            const diff = document.getElementById('difficulty').value;
-            const quizArea = document.getElementById('quiz-area');
-            
-            // This is a placeholder until your Railway Backend is live!
-            quizArea.innerHTML = `<p>Loading a Level ${diff} question...</p>
-                                  <p style="color: #e74c3c; font-size: 0.9rem;">(Connecting to Railway backend... soon!)</p>`;
-        }
-    </script>
-
+<script src="script.js"></script>
 </body>
 </html>
