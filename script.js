@@ -61,6 +61,24 @@ const questions = {
     }
 };
 
+let seconds = 0;
+let timerInterval;
+
+// Start the timer as soon as the page loads
+window.onload = startTimer;
+
+function startTimer() {
+    clearInterval(timerInterval);
+    seconds = 0;
+    timerInterval = setInterval(() => {
+        seconds++;
+        const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const secs = (seconds % 60).toString().padStart(2, '0');
+        const timerElement = document.getElementById('stopwatch');
+        if (timerElement) timerElement.innerText = `${mins}:${secs}`;
+    }, 1000);
+}
+
 function updateDiff(val) {
     document.getElementById('diffLabel').innerText = val;
 }
@@ -78,30 +96,4 @@ function generateQuestion() {
     let html = `<p class="question-text"><strong>Level ${diff}:</strong> ${data.q}</p><div class="options-grid">`;
 
     data.options.forEach(option => {
-        html += `<button class="option-btn" onclick="checkAnswer('${option}', '${data.a}', '${data.insult}')">${option}</button>`;
-    });
-
-    html += `</div>`;
-    quizArea.innerHTML = html;
-}
-
-function checkAnswer(selected, correct, roast) {
-    const quizArea = document.getElementById('quiz-area');
-    
-    if (selected === correct) {
-        quizArea.innerHTML = `
-            <div class="result-box success">
-                <h3>Correct! Maybe you *do* deserve that CPhT.</h3>
-                <button class="next-btn" onclick="generateQuestion()">Next Challenge</button>
-            </div>
-        `;
-    } else {
-        quizArea.innerHTML = `
-            <div class="result-box failure">
-                <h3 class="mockery">${roast}</h3>
-                <p>The correct answer was: <strong>${correct}</strong></p>
-                <button class="next-btn" onclick="generateQuestion()">Try Again</button>
-            </div>
-        `;
-    }
-}
+        html += `<button class="option-
