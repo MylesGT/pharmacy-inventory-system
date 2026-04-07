@@ -57,7 +57,7 @@ const questions = {
         q: "Calculate the drip rate for 1L NS over 8 hours with a drop factor of 15 gtt/mL.", 
         options: ["21", "31", "42", "60"],
         a: "31", 
-        insult: "A math error at Level 10? Khushboo Patel just shook her head in disappointment." 
+        insult: "A math error at Level 10? Khushboo just shook her head in disappointment." 
     }
 };
 
