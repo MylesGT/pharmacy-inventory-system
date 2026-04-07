@@ -8,22 +8,20 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>The Clinical Hot-Seat</h1>
-        <p><i>Pharmacy Knowledge Verification</i></p>
+   <div id="quiz-container">
+    <h2>The Clinical Hot-Seat</h2>
+    <p>Pharmacy Knowledge Verification</p>
 
-        <div class="setup-section">
-            <p>Select Difficulty (1 - 10):</p>
-            <input type="range" id="difficulty" min="1" max="10" value="5" oninput="updateDiff(this.value)">
-            <h2 id="diffLabel">5</h2>
-            <button onclick="generateQuestion()">Generate Question</button>
-        </div>
+    <label for="difficulty">Select Difficulty (1 - 10):</label>
+    <input type="range" id="difficulty" min="1" max="10" value="5" oninput="updateDiff(this.value)">
+    <span id="diffLabel">5</span>
 
-        <div id="quiz-area">
-            Choose a difficulty to begin the gauntlet.
-        </div>
-        <button onclick="location.reload()" style="background-color: #95a5a6; margin-top: 10px;">Reset Gauntlet</button>
-    </div>
+    <button onclick="generateQuestion()">Generate Question</button>
+
+    <div id="quiz-area"></div>
+
+    <button onclick="location.reload()">Reset Gauntlet</button>
+</div>
 
 <script src="script.js"></script>
 </body>
