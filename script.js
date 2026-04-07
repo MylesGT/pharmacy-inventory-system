@@ -57,14 +57,14 @@ const questions = {
         q: "Calculate the drip rate for 1L NS over 8 hours with a drop factor of 15 gtt/mL.", 
         options: ["21", "31", "42", "60"],
         a: "31", 
-        insult: "A math error at Level 10? Khushboo just shook her head in disappointment." 
+        insult: "A math error at Level 10? Khushboo Patel just shook her head in disappointment." 
     }
 };
 
 let seconds = 0;
 let timerInterval;
 
-// Start the timer as soon as the page loads
+// Start timer on load
 window.onload = startTimer;
 
 function startTimer() {
@@ -74,8 +74,8 @@ function startTimer() {
         seconds++;
         const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
         const secs = (seconds % 60).toString().padStart(2, '0');
-        const timerElement = document.getElementById('stopwatch');
-        if (timerElement) timerElement.innerText = `${mins}:${secs}`;
+        const display = document.getElementById('stopwatch');
+        if (display) display.innerText = `${mins}:${secs}`;
     }, 1000);
 }
 
@@ -89,11 +89,39 @@ function generateQuestion() {
     const data = questions[diff];
 
     if (!data) {
-        quizArea.innerHTML = `<p>Difficulty level ${diff} coming soon!</p>`;
+        quizArea.innerHTML = `<p>Level ${diff} is still being stocked in the pharmacy...</p>`;
         return;
     }
 
-    let html = `<p class="question-text"><strong>Level ${diff}:</strong> ${data.q}</p><div class="options-grid">`;
-
+    let html = `<p><strong>Level ${diff}:</strong> ${data.q}</p><div class="options-grid">`;
     data.options.forEach(option => {
-        html += `<button class="option-
+        html += `<button class="option-btn" onclick="checkAnswer('${option}', '${data.a}', '${data.insult}')">${option}</button>`;
+    });
+    html += `</div>`;
+    
+    quizArea.innerHTML = html;
+}
+
+function checkAnswer(selected, correct, roast) {
+    const quizArea = document.getElementById('quiz-area');
+    clearInterval(timerInterval); // Stop timer on answer
+
+    if (selected === correct) {
+        quizArea.innerHTML = `
+            <h3 class="congrats">Correct! Maybe you *do* deserve that CPhT.</h3>
+            <p>Time taken: ${document.getElementById('stopwatch').innerText}</p>
+            <button onclick="resetAndNext()">Next Level</button>
+        `;
+    } else {
+        quizArea.innerHTML = `
+            <h3 class="mockery">${roast}</h3>
+            <p>The correct answer was: <strong>${correct}</strong></p>
+            <button onclick="resetAndNext()">Try Again</button>
+        `;
+    }
+}
+
+function resetAndNext() {
+    startTimer();
+    generateQuestion();
+}
