@@ -62,6 +62,7 @@ button {
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s, background 0.3s;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -73,9 +74,10 @@ button:hover {
     margin-top: 25px;
     padding: 15px;
     border-radius: 8px;
-    font-style: italic;
-    color: #666;
-    
+    min-height: 100px;
+}
+
+/* Stopwatch Styling */
 #stopwatch {
     position: fixed;
     top: 20px;
@@ -87,34 +89,4 @@ button:hover {
     border: 2px solid var(--primary-blue);
     border-radius: 8px;
     color: #333;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.options-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.option-btn {
-    background-color: white;
-    color: var(--primary-blue);
-    border: 2px solid var(--primary-blue);
-    padding: 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.2s;
-}
-
-.option-btn:hover {
-    background-color: var(--primary-blue);
-    color: white;
-}
-    
-}
-
-/* Classes for your future JS logic */
-.congrats { color: var(--success-green); font-weight: bold; border: 2px solid var(--success-green); padding: 10px; }
-.mockery { color: var(--error-red); font-weight: bold; border: 2px solid var(--error-red); padding: 10px; }
+    z-index:
