@@ -1,14 +1,14 @@
 const questions = {
     1: { q: "What is the common brand name for Atorvastatin?", options: ["Zocor", "Lipitor", "Livalo", "Crestor"], a: "Lipitor", insult: "Back to the counting tray! That's Day 1 stuff." },
-    2: { q: "Which medication is a Proton Pump Inhibitor (PPI)?", options: ["Famotidine", "Omeprazole", "Ranitidine", "Sucralfate"], a: "Omeprazole", insult: "Jennifer is going to make you reorganize the OTC aisle for that one." },
-    3: { q: "Max refills allowed on a C-III prescription?", options: ["5 refills / 6 months", "No refills", "11 refills / 1 year", "5 refills / 1 year"], a: "5 refills / 6 months", insult: "Annie wouldn't have missed that. Study your laws!" },
-    4: { q: "Which of these is a typical side effect of Lisinopril?", options: ["Dry Cough", "Leg Edema", "Tinnitus", "Yellow Vision"], a: "Dry Cough", insult: "NAPLEX will eat you alive if you don't know the ACE inhibitor cough." },
+    2: { q: "Which medication is a Proton Pump Inhibitor (PPI)?", options: ["Famotidine", "Omeprazole", "Ranitidine", "Sucralfate"], a: "Omeprazole", insult: "Jennifer is going to make you reorganize the pharmacy for that one." },
+    3: { q: "Max refills allowed on a C-III prescription?", options: ["5 refills / 6 months", "No refills", "11 refills / 1 year", "5 refills / 1 year"], a: "5 refills / 6 months", insult: "Jennifer wouldn't have missed that. Study your laws!" },
+    4: { q: "Which of these is a typical side effect of Lisinopril?", options: ["Dry Cough", "Leg Edema", "Tinnitus", "Yellow Vision"], a: "Dry Cough", insult: "How did you pass NAPLEX if you don't know the ACE inhibitor cough." },
     5: { q: "Critical auxiliary label for Metronidazole?", options: ["Take with Food", "May Cause Drowsiness", "Avoid Alcohol", "Finish All"], a: "Avoid Alcohol", insult: "No drinking with this one! Did you skip clinical pearls?" },
-    6: { q: "Generic name for Januvia?", options: ["Saxagliptin", "Sitagliptin", "Linagliptin", "Alogliptin"], a: "Sitagliptin", insult: "Yujin Kim is judging your knowledge. Do better." },
-    7: { q: "Reversal agent for Warfarin?", options: ["Protamine", "Naloxone", "Phytonadione (Vit K)", "Flumazenil"], a: "Phytonadione (Vit K)", insult: "Stay away from the IV room until you learn your antidotes!" },
+    6: { q: "Generic name for Januvia?", options: ["Saxagliptin", "Sitagliptin", "Linagliptin", "Alogliptin"], a: "Sitagliptin", insult: "Jennifer is judging your knowledge. Do better." },
+    7: { q: "Reversal agent for Warfarin?", options: ["Protamine", "Naloxone", "Phytonadione (Vit K)", "Flumazenil"], a: "Phytonadione (Vit K)", insult: "Stay away from the compounding room until you learn your antidotes!" },
     8: { q: "Dose: 250mg. Stock: 1g/10mL. How many mL?", options: ["2.5 mL", "5 mL", "0.25 mL", "10 mL"], a: "2.5 mL", insult: "Math error! Jennifer is revoking your calculator privileges." },
     9: { q: "Which insulin is 'Rapid-Acting'?", options: ["Lantus", "Humulin N", "Novolog", "Levemir"], a: "Novolog", insult: "Moving slower than NPH. Novolog is the pace we need!" },
-    10: { q: "Drip rate: 1L NS over 8 hrs (15 gtt/mL).", options: ["21", "31", "42", "60"], a: "31", insult: "Khushboo Patel is shaking her head. Level 10 math is no joke." }
+    10: { q: "Drip rate: 1L NS over 8 hrs (15 gtt/mL).", options: ["21", "31", "42", "60"], a: "31", insult: "Jennifer is shaking her head. Level 10 math is no joke." }
 };
 
 let startTime;
