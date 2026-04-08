@@ -3,10 +3,11 @@
     --medical-blue: #3498db;
     --success-green: #27ae60;
     --bg-light: #f4f7f6;
+    --danger-red: #e74c3c;
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(-45deg, #f4f7f6, #e1e8e7, #ffffff, #d6e0df);
     background-size: 400% 400%;
     animation: gradientPulse 15s ease infinite;
@@ -25,63 +26,116 @@ body {
 
 .container {
     background: white;
-    padding: 2rem;
-    border-radius: 15px;
+    padding: 2.5rem;
+    border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 450px;
+    width: 90%;
+    max-width: 500px;
     text-align: center;
     border-top: 8px solid var(--medical-blue);
     transition: all 0.3s ease;
 }
 
+/* The flash effect for correct answers */
 .correct-flash {
     animation: flash-green 0.6s ease-out;
 }
 
 @keyframes flash-green {
     0% { box-shadow: 0 0 0px var(--success-green); }
-    50% { box-shadow: 0 0 30px var(--success-green); border-color: var(--success-green); transform: scale(1.02); }
+    50% { 
+        box-shadow: 0 0 40px var(--success-green); 
+        border-color: var(--success-green);
+        transform: scale(1.02);
+    }
     100% { box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
 }
 
+h1 {
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+}
+
 #diffLabel {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 3rem;
+    font-weight: 800;
     color: var(--medical-blue);
-    margin: 10px 0;
-    transition: all 0.2s ease;
-    display: inline-block;
+    margin: 15px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
 }
 
 .difficulty-box {
     margin: 25px 0;
-    padding: 15px;
+    padding: 20px;
     background: #f8f9fa;
-    border-radius: 10px;
+    border-radius: 12px;
+    border: 1px solid #edf2f7;
 }
 
+/* Slider Styling */
+input[type=range] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: var(--medical-blue);
+}
+
+/* Unified Button Styling */
 button {
     background-color: var(--primary-blue);
     color: white;
     border: none;
-    padding: 12px;
+    padding: 14px;
     border-radius: 8px;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
     width: 100%;
-    margin-top: 10px;
-    margin-top: 0;
-    transition: 0.2s;
 }
 
-button:hover { background-color: #1a252f; }
+button:hover {
+    background-color: #1a252f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Specific styling for the answer buttons grid */
+#btn-grid button {
+    font-size: 0.95rem;
+    padding: 12px;
+}
+
+/* Utility buttons */
+.btn-reset {
+    background-color: #95a5a6;
+    margin-top: 30px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.btn-reset:hover {
+    background-color: var(--danger-red);
+    opacity: 1;
+}
 
 #stopwatch {
     position: fixed;
     top: 20px;
     right: 20px;
     background: white;
-    padding: 10px;
+    padding: 12px 20px;
     border: 2px solid var(--primary-blue);
-    border-radius: 8px;
+    border-radius: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#quiz-area {
+    min-height: 150px; /* Prevents layout jumping when questions load */
+    margin-top: 20px;
 }
