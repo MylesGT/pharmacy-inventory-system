@@ -25,6 +25,9 @@ function startTimer() {
 
 function updateDiff(val) {
     document.getElementById('diffLabel').innerText = val;
+    // This line makes the question change immediately as you slide
+    generateQuestion(); 
+}
 }
 
 function generateQuestion() {
