@@ -9,12 +9,21 @@
 
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-light);
+    /* Animated Gradient Background */
+    background: linear-gradient(-45deg, #f4f7f6, #e1e8e7, #ffffff, #d6e0df);
+    background-size: 400% 400%;
+    animation: gradientPulse 15s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+}
+
+@keyframes gradientPulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -26,6 +35,18 @@ body {
     max-width: 450px;
     text-align: center;
     border-top: 8px solid var(--medical-blue);
+    transition: all 0.3s ease;
+}
+
+/* Success Flash Effect */
+.correct-flash {
+    animation: flash-green 0.6s ease-out;
+}
+
+@keyframes flash-green {
+    0% { box-shadow: 0 0 0px var(--success-green); }
+    50% { box-shadow: 0 0 30px var(--success-green); border-color: var(--success-green); transform: scale(1.02); }
+    100% { box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
 }
 
 h1 {
@@ -46,11 +67,14 @@ h1 {
     font-weight: bold;
     color: var(--medical-blue);
     margin: 10px 0;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s;
+    display: inline-block;
 }
 
 input[type="range"] {
     width: 100%;
     accent-color: var(--medical-blue);
+    cursor: pointer;
 }
 
 button {
@@ -63,6 +87,7 @@ button {
     cursor: pointer;
     transition: transform 0.2s, background 0.3s;
     margin-top: 10px;
+    width: 100%;
 }
 
 button:hover {
@@ -72,21 +97,9 @@ button:hover {
 
 #quiz-area {
     margin-top: 25px;
-    padding: 15px;
     border-radius: 8px;
     min-height: 100px;
 }
 
-/* Stopwatch Styling */
 #stopwatch {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5rem;
-    background: white;
-    padding: 10px 15px;
-    border: 2px solid var(--primary-blue);
-    border-radius: 8px;
-    color: #333;
-    z-index:
+    position:
