@@ -1,79 +1,86 @@
-const questions = {
-    1: { q: "What is the common brand name for Atorvastatin?", options: ["Zocor", "Lipitor", "Livalo", "Crestor"], a: "Lipitor", insult: "Back to the counting tray! That's Day 1 stuff." },
-    2: { q: "Which medication is a Proton Pump Inhibitor (PPI)?", options: ["Famotidine", "Omeprazole", "Ranitidine", "Sucralfate"], a: "Omeprazole", insult: "Jennifer is going to make you reorganize the OTC aisle for that one." },
-    3: { q: "Max refills allowed on a C-III prescription?", options: ["5 refills / 6 months", "No refills", "11 refills / 1 year", "5 refills / 1 year"], a: "5 refills / 6 months", insult: "Annie wouldn't have missed that. Study your laws!" },
-    4: { q: "Which of these is a typical side effect of Lisinopril?", options: ["Dry Cough", "Leg Edema", "Tinnitus", "Yellow Vision"], a: "Dry Cough", insult: "NAPLEX will eat you alive if you don't know the ACE inhibitor cough." },
-    5: { q: "Critical auxiliary label for Metronidazole?", options: ["Take with Food", "May Cause Drowsiness", "Avoid Alcohol", "Finish All"], a: "Avoid Alcohol", insult: "No drinking with this one! Did you skip clinical pearls?" },
-    6: { q: "Generic name for Januvia?", options: ["Saxagliptin", "Sitagliptin", "Linagliptin", "Alogliptin"], a: "Sitagliptin", insult: "Yujin Kim is judging your knowledge. Do better." },
-    7: { q: "Reversal agent for Warfarin?", options: ["Protamine", "Naloxone", "Phytonadione (Vit K)", "Flumazenil"], a: "Phytonadione (Vit K)", insult: "Stay away from the IV room until you learn your antidotes!" },
-    8: { q: "Dose: 250mg. Stock: 1g/10mL. How many mL?", options: ["2.5 mL", "5 mL", "0.25 mL", "10 mL"], a: "2.5 mL", insult: "Math error! Jennifer is revoking your calculator privileges." },
-    9: { q: "Which insulin is 'Rapid-Acting'?", options: ["Lantus", "Humulin N", "Novolog", "Levemir"], a: "Novolog", insult: "Moving slower than NPH. Novolog is the pace we need!" },
-    10: { q: "Drip rate: 1L NS over 8 hrs (15 gtt/mL).", options: ["21", "31", "42", "60"], a: "31", insult: "Khushboo Patel is shaking her head. Level 10 math is no joke." }
-};
-
-let seconds = 0;
-let timerInterval;
-
-window.onload = () => {
-    startTimer();
-    const slider = document.getElementById('difficulty');
-    if(slider) updateDiff(slider.value);
-};
-
-function startTimer() {
-    clearInterval(timerInterval);
-    seconds = 0;
-    timerInterval = setInterval(() => {
-        seconds++;
-        const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
-        const secs = (seconds % 60).toString().padStart(2, '0');
-        const display = document.getElementById('stopwatch');
-        if (display) display.innerText = `${mins}:${secs}`;
-    }, 1000);
+:root {
+    --primary-blue: #2c3e50;
+    --medical-blue: #3498db;
+    --success-green: #27ae60;
+    --bg-light: #f4f7f6;
 }
 
-function updateDiff(val) {
-    const label = document.getElementById('diffLabel');
-    if (label) {
-        label.innerText = val;
-        const scale = 1 + (val * 0.05);
-        const redValue = Math.floor((val - 1) * 25);
-        label.style.transform = `scale(${scale})`;
-        label.style.color = `rgb(${redValue}, 152, 219)`;
-    }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #f4f7f6, #e1e8e7, #ffffff, #d6e0df);
+    background-size: 400% 400%;
+    animation: gradientPulse 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
-function generateQuestion() {
-    const diffElement = document.getElementById('difficulty');
-    const quizArea = document.getElementById('quiz-area');
-    if (!diffElement || !quizArea) return;
-
-    const diff = Number(diffElement.value);
-    const data = questions[diff];
-
-    quizArea.innerHTML = `
-        <div class="question-box" style="background: #fdfdfd; padding: 20px; border-radius: 10px; border: 1px solid #eee; margin-top: 10px;">
-            <h3 style="color: #2c3e50; margin-top: 0;">Level ${diff}: Challenge</h3>
-            <p style="font-size: 1.05rem; color: #34495e;">${data.q}</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                ${data.options.map(opt => `
-                    <button style="padding: 10px; font-size: 0.9rem;" onclick="checkAnswer('${opt}', '${data.a}', '${data.insult}')">${opt}</button>
-                `).join('')}
-            </div>
-        </div>
-    `;
+@keyframes gradientPulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-function checkAnswer(selected, correct, insult) {
-    const container = document.getElementById('mainContainer');
-    if (selected === correct) {
-        if (container) {
-            container.classList.add('correct-flash');
-            setTimeout(() => container.classList.remove('correct-flash'), 600);
-        }
-        alert("Correct! Keep moving technician.");
-        generateQuestion(); 
-    } else {
-        alert(insult);
-    }
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    border-top: 8px solid var(--medical-blue);
+    transition: all 0.3s ease;
+}
+
+.correct-flash {
+    animation: flash-green 0.6s ease-out;
+}
+
+@keyframes flash-green {
+    0% { box-shadow: 0 0 0px var(--success-green); }
+    50% { box-shadow: 0 0 30px var(--success-green); border-color: var(--success-green); transform: scale(1.02); }
+    100% { box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+}
+
+#diffLabel {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--medical-blue);
+    margin: 10px 0;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.difficulty-box {
+    margin: 25px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+button:hover { background-color: #1a252f; }
+
+#stopwatch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 10px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 8px;
 }
