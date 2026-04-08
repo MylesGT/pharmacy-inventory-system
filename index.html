@@ -9,14 +9,14 @@
 <body>
     <div id="stopwatch">00:00</div>
     
-    <div class="container">
+    <div class="container" id="mainContainer">
         <h1>The Clinical Hot-Seat</h1>
-        <p>Pharmacy Knowledge Verification</p>
+        <p style="color: #7f8c8d; margin-top: 5px;">Pharmacy Knowledge Verification</p>
         
         <div class="difficulty-box">
-            <label for="difficulty">Select Difficulty (1 - 10):</label>
+            <label for="difficulty" style="font-weight: 600; color: #34495e;">Select Difficulty (1 - 10):</label>
             <input type="range" id="difficulty" min="1" max="10" value="5" oninput="updateDiff(this.value)">
-            <div id="diffLabel">5</div>
+            <div><span id="diffLabel">5</span></div>
         </div>
 
         <button onclick="generateQuestion()">Generate Question</button>
@@ -24,7 +24,7 @@
         <div id="quiz-area">
             </div>
 
-        <button onclick="location.reload()" style="background-color: #7f8c8d; margin-top: 20px;">Reset Gauntlet</button>
+        <button onclick="location.reload()" style="background-color: #95a5a6; margin-top: 30px; font-size: 0.9rem;">Reset Gauntlet</button>
     </div>
 
     <script src="script.js"></script>
