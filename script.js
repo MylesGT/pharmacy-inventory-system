@@ -36,7 +36,6 @@ function updateDiff(val) {
     const label = document.getElementById('diffLabel');
     if (label) {
         label.innerText = val;
-        // Dynamic Interactivity: Scale the number and shift color to red at higher levels
         const scale = 1 + (val * 0.05);
         const redValue = Math.floor((val - 1) * 25);
         label.style.transform = `scale(${scale})`;
@@ -68,10 +67,10 @@ function generateQuestion() {
 function checkAnswer(selected, correct, insult) {
     const container = document.getElementById('mainContainer');
     if (selected === correct) {
-        // Trigger visual feedback
-        container.classList.add('correct-flash');
-        setTimeout(() => container.classList.remove('correct-flash'), 600);
-        
+        if (container) {
+            container.classList.add('correct-flash');
+            setTimeout(() => container.classList.remove('correct-flash'), 600);
+        }
         alert("Correct! Keep moving technician.");
         generateQuestion(); 
     } else {
